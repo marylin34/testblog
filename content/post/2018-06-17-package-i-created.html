@@ -1,0 +1,18 @@
+---
+title: Package I Created 
+author: Mary Lin
+date: '2018-06-17'
+slug: package-i-created
+categories: []
+tags: []
+---
+
+
+
+<p>Me and my partner created a package to help with our entry in the Kaggle Competition. It is called Kaggler Help. The package provides two functions, one for replacing NAs in a column with the median of the column and another to write out a csv file from a dataframe.</p>
+<p>This is the code for the replaceNansWithMedian function:</p>
+<p>replaceNansWithMedian &lt;- function(df, colName) { colMedian &lt;- median(df[[colName]], na.rm=TRUE) df[[colName]] &lt;- tidyr::replace_na(df[[colName]], colMedian) return(df) }</p>
+<p>This is the code to write out the CSV file with a column of SK_ID_CURR and TARGET</p>
+<p>writeCSV &lt;- function(testdata, predictstatement, filename=“yourAnswer”) { fit2 &lt;- data.frame(SK_ID_CURR = testdata$SK_ID_CURR, TARGET = predictstatement) write.csv(fit2, filename, row.names = FALSE, col.names = FALSE) }</p>
+<p>This package can be found on github @ <a href="https://github.com/marylin34/KaggleHelper/blob/master/R/writeCSV.R" class="uri">https://github.com/marylin34/KaggleHelper/blob/master/R/writeCSV.R</a></p>
+<p>It can be downloaded by inputting devtools::install_packages(jcreynol/KaggleHelper)</p>
